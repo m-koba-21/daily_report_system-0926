@@ -55,6 +55,11 @@ public class Employee {
 	    @Column(name = "name",  nullable = false)
 	    private String name;
 
+	    //length=64
+	    //入力できる最大文字数64字
+	    //パスワードの情報については SHA256 という方式で
+	    //暗号化した文字列をデータベースに保存できるようにします
+	    //SHA256 は、どんな文字数の文字列でも必ず、64文字の暗号化文字列にしてくれます
 	    @Column(name = "password", length = 64, nullable = false)
 	    private String password;
 
