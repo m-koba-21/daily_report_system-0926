@@ -49,7 +49,7 @@ public class EmployeesDestroyServlet extends HttpServlet {
 
             //destroy した従業員情報は削除したとみなしてシステム上で扱うことにして、
             //従業員情報そのものはデータベースに残す 形にしています。
-            //このような方法を 論理削除
+            //このような方法を 論理削除という
         }
     }
 
