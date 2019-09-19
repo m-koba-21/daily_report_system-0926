@@ -16,12 +16,14 @@ public class EmployeeValidator {
 	//社員番号も同様で、変更しないのに重複チェックが実行されるとエラーとなって変更できなくなります
 	//変更（update）の場合は、バリデーションが不要な場合がある
 	//社員番号とパスワードについては、第2引数にBoolean型の引数を用意し、
+	//code_duplicate_check_flag がtrueなら入力値チェック
 	//そこが true であればパスワードの入力値チェック、および社員番号の重複チェックを行う
 	//コントローラの方でフォームの入力状態を確認し、バリデーションを実行する or しないを決めます
 	public static List<String> validate(Employee e, Boolean code_duplicate_check_flag, Boolean password_check_flag) {
         List<String> errors = new ArrayList<String>();
 
         String code_error = _validateCode(e.getCode(), code_duplicate_check_flag);
+        //_validateCodeメソッド　returnが空文字ならOK
         if(!code_error.equals("")) {
             errors.add(code_error);
         }
@@ -39,11 +41,13 @@ public class EmployeeValidator {
         return errors;
     }
 
+	//_validateCodeメソッド
     // 社員番号
     private static String _validateCode(String code, Boolean code_duplicate_check_flag) {
-        // 必須入力チェック
+        // 必須入力チェック　何も入力されていない
         if(code == null || code.equals("")) {
             return "社員番号を入力してください。";
+            //return メソッド終了
         }
 
         // 既に登録されている社員番号との重複チェック
@@ -55,6 +59,7 @@ public class EmployeeValidator {
             em.close();
             if(employees_count > 0) {
                 return "入力された社員番号の情報は既に存在しています。";
+                //return メソッド終了
             }
         }
 
