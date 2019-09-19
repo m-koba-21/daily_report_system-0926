@@ -74,6 +74,7 @@ public class Employee {
 
 	    @Column(name = "delete_flag", nullable = false)
 	    private Integer delete_flag;
+	    //delete_flagが1になっている従業員情報は削除されているとみなす
 
 		public Integer getId() {
 			return id;
