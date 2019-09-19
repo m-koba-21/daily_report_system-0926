@@ -10,7 +10,11 @@ public class EncryptUtil {
 	//getPasswordEncrypt(src) のようにメソッド名をひとつ記述すれば
 	//実行できる暗号化メソッドを用意します。
 	//このメソッドは、様々なコントローラで使えるよう、DBUtil のようなユーティリティにしましょう。
-    public static String getPasswordEncrypt(String plain_p, String salt) {
+
+	//getPasswordEncrypt メソッドは、引数で受け取った文字列に
+	//ソルト文字列を連結させたものを
+	// SHA256 で暗号化
+	public static String getPasswordEncrypt(String plain_p, String salt) {
         String ret = "";
 
         if(plain_p != null && !plain_p.equals("")) {
