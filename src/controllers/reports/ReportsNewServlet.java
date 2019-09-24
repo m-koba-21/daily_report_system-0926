@@ -31,6 +31,7 @@ public class ReportsNewServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//setArribute        データをリクエストの範囲内で格納
 		request.setAttribute("_token", request.getSession().getId());
 
 		//日報の日時は、事前に本日の日付を取得して格納しています
