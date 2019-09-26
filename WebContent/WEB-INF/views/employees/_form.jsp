@@ -4,8 +4,8 @@
 <c:if test = "${errors != null }">
 <div id="flush_error">
 入力内容にエラーがあります。<br/>
-<c:forEach var ="error" items="${error }">
-・<c:out value="${ error}" /><br/>
+<c:forEach var ="errors" items="${errors }">
+・<c:out value="${ errors}" /><br/>
 </c:forEach>
 
 </div>
@@ -19,7 +19,7 @@
 <br/><br/>
 
 <label for="password">パスワード</label><br/>
-<input type="text" name="password" />
+<input type="password" name="password" />
 <br/><br/>
 
 <label for="admi_flag">権限</label><br/>
